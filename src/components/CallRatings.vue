@@ -4,7 +4,7 @@
 import { useRoute, useRouter } from 'vue-router';
     
     const router = useRouter()
-    const ratings = ref([])
+    const ratings = ref(null)
     const limit = ref(null)
     const current = ref(1)
 
@@ -18,9 +18,11 @@ import { useRoute, useRouter } from 'vue-router';
                 }
             })
 
-            response.data.data.results.forEach(rating=>{
-                ratings.value.push(rating)
-            })
+            // response.data.data.results.forEach(rating=>{
+            //     ratings.value.push(rating)
+            // })
+
+            ratings.value = response.data.data.results
 
             if (current.value = response.data.data.totalPages){
                 limit.value = true
