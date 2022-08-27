@@ -71,7 +71,7 @@ import { useRoute, useRouter } from 'vue-router';
                 <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Stars</th>
             </tr>
         </thead>
-        <tbody class="bg-white dark:bg-slate-800 rounded-b-lg" v-if="ratings.length>0">
+        <tbody class="bg-white dark:bg-slate-800 rounded-b-lg" v-if="ratings">
             <tr v-for="(rating, index) in ratings" :key="index" class="odd:bg-white even:bg-slate-50">
                 <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">rating.createdBy</td>
                 <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">rating.comment</td>
@@ -99,7 +99,7 @@ import { useRoute, useRouter } from 'vue-router';
     </table>
 
     <router-link :to="{name: 'rater'}" class="text-sm underline text-left">
-        <button class="my-8 bg-blue-400 text-white text-sm px-5 py-1.5 rounded-2xl disabled:bg-zinc-200 disabled:text-gray-600" :disabled="ratings.length<1">New rating</button>
+        <button class="my-8 bg-blue-400 text-white text-sm px-5 py-1.5 rounded-2xl disabled:bg-zinc-200 disabled:text-gray-600" :disabled="!ratings">New rating</button>
     </router-link>
 </template>
 
